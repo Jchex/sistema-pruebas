@@ -20,7 +20,7 @@ function Defecto() {
     useEffect(() => {
         const cargarDatos = async () => {
             try {
-                const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/defecto/defecto`);
+                const respuesta = await axios.get(`http://68.183.19.57:3001/defecto/defecto`);
                 setDatos(respuesta.data);
             } catch (error) {
                 console.error('Error al cargar los datos:', error);
@@ -58,9 +58,9 @@ function Defecto() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`${process.env.REACT_APP_API_URL}/defecto/defecto/${defectoEditando.id}`, values);
+            await axios.put(`http://68.183.19.57:3001/defecto/defecto/${defectoEditando.id}`, values);
             Swal.fire('Éxito', 'Defecto actualizado correctamente', 'success');
-            const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/defecto/defecto`);
+            const respuesta = await axios.get(`http://68.183.19.57:3001/defecto/defecto`);
             setDatos(respuesta.data);
             setDefectoEditando(null);
         } catch (error) {
@@ -82,9 +82,9 @@ function Defecto() {
 
         if (confirmacion.isConfirmed) {
             try {
-                await axios.delete(`${process.env.REACT_APP_API_URL}/defecto/defecto/${id}`);
+                await axios.delete(`http://68.183.19.57:3001/defecto/defecto/${id}`);
                 Swal.fire('Eliminado!', 'El defecto ha sido eliminado.', 'success');
-                const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/defecto/defecto`);
+                const respuesta = await axios.get(`http://68.183.19.57:3001/defecto/defecto`);
                 setDatos(respuesta.data);
             } catch (error) {
                 console.error('Error al eliminar el defecto:', error);

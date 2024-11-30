@@ -17,7 +17,7 @@ function Codigo() {
         setError('');
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/codigo`, { 
+            const response = await fetch(`http://68.183.19.57:3001/codigo`, { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

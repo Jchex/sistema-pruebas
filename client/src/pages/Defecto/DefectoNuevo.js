@@ -21,7 +21,7 @@ function Ndefecto() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post(`${process.env.REACT_APP_API_URL}/defecto/defecto`, values);
+      const resp = await axios.post(`http://68.183.19.57:3001/defecto/defecto`, values);
       if (resp.status === 200) {
         Swal.fire("Se registró con éxito!");
         navigate('/Defecto');

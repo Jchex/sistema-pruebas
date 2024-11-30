@@ -32,7 +32,7 @@ function NAsignacion() {
   useEffect(() => {
     const cargarProyectos = async () => {
       try {
-        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/proyecto/proyectoA`);
+        const resp = await axios.get(`http://68.183.19.57:3001/proyecto/proyectoA`);
         setProyectos(resp.data);
       } catch (error) {
         console.error('Error al cargar datos:', error);
@@ -43,7 +43,7 @@ function NAsignacion() {
 
     const cargarUsuarios = async () => {
       try {
-        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/usuario/usuario`);
+        const resp = await axios.get(`http://68.183.19.57:3001/usuario/usuario`);
         setUsuarios(resp.data);
       } catch (error) {
         console.error('Error al cargar usuarios:', error);
@@ -54,7 +54,7 @@ function NAsignacion() {
 
     const cargarPruebas = async () => {
       try {
-        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/prueba/prueba`);
+        const resp = await axios.get(`http://68.183.19.57:3001/prueba/prueba`);
         setPruebas(resp.data);
       } catch (error) {
         console.error('Error al cargar pruebas:', error);
@@ -81,7 +81,7 @@ function NAsignacion() {
     console.log('\t\t values', values);
     
     try {
-      const resp = await axios.post(`${process.env.REACT_APP_API_URL}/asignacion/asignacion`, values);
+      const resp = await axios.post(`http://68.183.19.57:3001/asignacion/asignacion`, values);
       if (resp.status === 200) {
         Swal.fire("Se registró con éxito!");
         navigate('/Proyecto');

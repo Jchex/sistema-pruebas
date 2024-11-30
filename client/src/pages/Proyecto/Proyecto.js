@@ -25,7 +25,7 @@ function Proyecto() {
     useEffect(() => {
         const cargarDatos = async () => {
             try {
-                const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/proyecto/proyectoA`);
+                const respuesta = await axios.get(`http://68.183.19.57:3001/proyecto/proyectoA`);
                 setDatos(respuesta.data);
             } catch (error) {
                 console.error('Error al cargar los datos:', error);
@@ -65,10 +65,10 @@ function Proyecto() {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`${process.env.REACT_APP_API_URL}/proyecto/proyecto/${usuarioEditando.id}`, values);
+            const response = await axios.put(`http://68.183.19.57:3001/proyecto/proyecto/${usuarioEditando.id}`, values);
             if (response.status === 200) {
                 Swal.fire('Éxito', 'Proyecto actualizado correctamente', 'success');
-                const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/proyecto/proyectoA`);
+                const respuesta = await axios.get(`http://68.183.19.57:3001/proyecto/proyectoA`);
                 setDatos(respuesta.data);
                 setUsuarioEditando(null);
             }
@@ -95,9 +95,9 @@ function Proyecto() {
 
         if (confirmacion.isConfirmed) {
             try {
-                await axios.delete(`${process.env.REACT_APP_API_URL}/proyecto/proyecto/${id}`);
+                await axios.delete(`http://68.183.19.57:3001/proyecto/proyecto/${id}`);
                 Swal.fire('Eliminado!', 'El proyecto ha sido eliminado.', 'success');
-                const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/proyecto/proyecto`);
+                const respuesta = await axios.get(`http://68.183.19.57:3001/proyecto/proyecto`);
                 setDatos(respuesta.data);
             } catch (error) {
                 console.error('Error al eliminar el proyecto:', error);

@@ -16,9 +16,9 @@ function ProyectoSeguimiento() {
   useEffect(() => {
     const cargarPruebas = async () => {
       try {
-        const resp = await axios.get(`${process.env.REACT_APP_API_URL}/asignacion/asignacionXP/${seguimiento}`);
+        const resp = await axios.get(`http://68.183.19.57:3001/asignacion/asignacionXP/${seguimiento}`);
         setPruebas(resp.data);
-        const datoProyect = await axios.get(`${process.env.REACT_APP_API_URL}/proyecto/proyectoX/${seguimiento}`);
+        const datoProyect = await axios.get(`http://68.183.19.57:3001/proyecto/proyectoX/${seguimiento}`);
         if (datoProyect.data.length > 0) {
           setProyectoNombre(datoProyect.data[0].nombre);
         }

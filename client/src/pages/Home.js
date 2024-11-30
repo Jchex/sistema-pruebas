@@ -28,22 +28,22 @@ function Home() {
   useEffect(() => {
     const dashdatos = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard/dashproyecto`);
+        const response = await axios.get(`http://68.183.19.57:3001/dashboard/dashproyecto`);
         setProyectos(response.data);
-        const response1 = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard/codigo`);
+        const response1 = await axios.get(`http://68.183.19.57:3001/dashboard/codigo`);
         setcodigo(response1.data);
-        const responses = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard/dashpruebas`);
+        const responses = await axios.get(`http://68.183.19.57:3001/dashboard/dashpruebas`);
         setPruebas(responses.data);
         const roles = ['Desarrollador', 'Tester'];
         const counts = {};
         for (const rol of roles) {
-          const resp = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard/usuarioXR/${rol}`);
+          const resp = await axios.get(`http://68.183.19.57:3001/dashboard/usuarioXR/${rol}`);
           counts[rol] = resp.data.count;
         }
         setUserCounts(counts);
         console.log(setUserCounts)
         //Fetchcalendar events (this is an example, adjust according to your API)
-        const eventsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard/calendarproyecto`);
+        const eventsResponse = await axios.get(`http://68.183.19.57:3001/dashboard/calendarproyecto`);
         setEvents(eventsResponse.data);
         setLoading(false);
       } catch (err) {

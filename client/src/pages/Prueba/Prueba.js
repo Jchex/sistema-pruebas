@@ -23,7 +23,7 @@ function Prueba() {
     useEffect(() => {
         const cargarDatos = async () => {
             try {
-                const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/prueba/prueba`);
+                const respuesta = await axios.get(`http://68.183.19.57:3001/prueba/prueba`);
                 setDatos(respuesta.data);
             } catch (error) {
                 console.error('Error al cargar los datos:', error);
@@ -64,9 +64,9 @@ function Prueba() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`${process.env.REACT_APP_API_URL}/prueba/prueba/${pruebaEditando.id}`, values);
+            await axios.put(`http://68.183.19.57:3001/prueba/prueba/${pruebaEditando.id}`, values);
             Swal.fire('Éxito', 'Prueba actualizada correctamente', 'success');
-            const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/prueba/prueba`);
+            const respuesta = await axios.get(`http://68.183.19.57:3001/prueba/prueba`);
             setDatos(respuesta.data);
             setpruebaEditando(null);
         } catch (error) {
@@ -88,9 +88,9 @@ function Prueba() {
 
         if (confirmacion.isConfirmed) {
             try {
-                await axios.delete(`${process.env.REACT_APP_API_URL}/prueba/prueba/${id}`);
+                await axios.delete(`http://68.183.19.57:3001/prueba/prueba/${id}`);
                 Swal.fire('Eliminado!', 'La prueba ha sido eliminada.', 'success');
-                const respuesta = await axios.get(`${process.env.REACT_APP_API_URL}/prueba/prueba`);
+                const respuesta = await axios.get(`http://68.183.19.57:3001/prueba/prueba`);
                 setDatos(respuesta.data);
             } catch (error) {
                 console.error('Error al eliminar la prueba:', error);

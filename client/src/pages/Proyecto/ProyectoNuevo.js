@@ -28,7 +28,7 @@ function Nproyecto() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post(`${process.env.REACT_APP_API_URL}/proyecto/proyecto`, values);
+      const resp = await axios.post(`http://68.183.19.57:3001/proyecto/proyecto`, values);
       if (resp.status === 200) {
         Swal.fire("Se registró con éxito!");
         navigate('/Proyecto');

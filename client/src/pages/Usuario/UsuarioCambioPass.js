@@ -18,7 +18,7 @@ function Nusuario() {
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/usuario/rol`);
+        const response = await axios.get(`http://68.183.19.57:3001/usuario/rol`);
         setRoles(response.data);
       } catch (error) {
         console.error("Error  roles:", error);
@@ -40,7 +40,7 @@ function Nusuario() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post(`${process.env.REACT_APP_API_URL}/usuario/usuario`, values);
+      const resp = await axios.post(`http://68.183.19.57:3001/usuario/usuario`, values);
       if (resp.status === 200) {
         Swal.fire("Se registró con éxito!");
         navigate('/Usuario');

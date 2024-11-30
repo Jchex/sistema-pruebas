@@ -34,7 +34,7 @@ function Nprueba() {
     }
 
     try {
-      const resp = await axios.post(`${process.env.REACT_APP_API_URL}/prueba/prueba`, values);
+      const resp = await axios.post(`http://68.183.19.57:3001/prueba/prueba`, values);
       if (resp.status === 200) {
         Swal.fire("Se registró con éxito!");
         navigate('/Prueba');
