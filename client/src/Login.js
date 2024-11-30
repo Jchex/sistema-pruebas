@@ -21,7 +21,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const resp = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, values);
+            const resp = await axios.post(`http://68.183.19.57/auth/login`, values);
             if (resp.status === 200) {
                 localStorage.setItem('token', resp.data.token); // Creación de token inicio de sesión
                 Swal.fire("Bienvenido");
